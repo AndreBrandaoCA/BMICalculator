@@ -10,11 +10,25 @@ using System.Windows.Forms;
 
 namespace BMICalculator
 {
-    public partial class Form1 : Form
+    public partial class BMICalculatorForm : Form
     {
-        public Form1()
+        public BMICalculatorForm()
         {
             InitializeComponent();
+        }
+
+        private void CalculateBMIButton_Click(object sender, EventArgs e)
+        {
+            if (ImperialRadioButton.Checked)
+            {
+                ResultLabel.Visible = true;
+                ResultLabel.Text = "" + Math.Round((WeightNumericInput.Value * 703) / (HeightNumericInput.Value * HeightNumericInput.Value));
+            }
+            else
+            {
+                ResultLabel.Visible = true;
+                ResultLabel.Text = "" + Math.Round(WeightNumericInput.Value / (HeightNumericInput.Value * HeightNumericInput.Value));
+            }
         }
     }
 }
