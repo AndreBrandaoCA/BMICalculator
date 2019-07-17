@@ -59,7 +59,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.24074F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.75926F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.tableLayoutPanel1.Controls.Add(this.WeightNumericTextBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.WeightUnitLabel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.HeightUnitLabel, 2, 0);
@@ -79,7 +79,7 @@
             this.WeightNumericTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.WeightNumericTextBox.Location = new System.Drawing.Point(134, 52);
+            this.WeightNumericTextBox.Location = new System.Drawing.Point(133, 52);
             this.WeightNumericTextBox.MaxLength = 4;
             this.WeightNumericTextBox.Name = "WeightNumericTextBox";
             this.WeightNumericTextBox.Size = new System.Drawing.Size(109, 38);
@@ -94,9 +94,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.WeightUnitLabel.AutoSize = true;
-            this.WeightUnitLabel.Location = new System.Drawing.Point(249, 49);
+            this.WeightUnitLabel.Location = new System.Drawing.Point(248, 49);
             this.WeightUnitLabel.Name = "WeightUnitLabel";
-            this.WeightUnitLabel.Size = new System.Drawing.Size(50, 46);
+            this.WeightUnitLabel.Size = new System.Drawing.Size(51, 46);
             this.WeightUnitLabel.TabIndex = 5;
             this.WeightUnitLabel.Text = "lb";
             this.WeightUnitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -107,9 +107,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.HeightUnitLabel.AutoSize = true;
-            this.HeightUnitLabel.Location = new System.Drawing.Point(249, 0);
+            this.HeightUnitLabel.Location = new System.Drawing.Point(248, 0);
             this.HeightUnitLabel.Name = "HeightUnitLabel";
-            this.HeightUnitLabel.Size = new System.Drawing.Size(50, 49);
+            this.HeightUnitLabel.Size = new System.Drawing.Size(51, 49);
             this.HeightUnitLabel.TabIndex = 4;
             this.HeightUnitLabel.Text = "in";
             this.HeightUnitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -122,7 +122,7 @@
             this.HeightLabel.AutoSize = true;
             this.HeightLabel.Location = new System.Drawing.Point(3, 0);
             this.HeightLabel.Name = "HeightLabel";
-            this.HeightLabel.Size = new System.Drawing.Size(125, 49);
+            this.HeightLabel.Size = new System.Drawing.Size(124, 49);
             this.HeightLabel.TabIndex = 0;
             this.HeightLabel.Text = "Height:";
             this.HeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -132,7 +132,7 @@
             this.HeightNumericTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.HeightNumericTextBox.Location = new System.Drawing.Point(134, 3);
+            this.HeightNumericTextBox.Location = new System.Drawing.Point(133, 3);
             this.HeightNumericTextBox.MaxLength = 4;
             this.HeightNumericTextBox.Name = "HeightNumericTextBox";
             this.HeightNumericTextBox.Size = new System.Drawing.Size(109, 38);
@@ -149,7 +149,7 @@
             this.WeightLabel.AutoSize = true;
             this.WeightLabel.Location = new System.Drawing.Point(3, 49);
             this.WeightLabel.Name = "WeightLabel";
-            this.WeightLabel.Size = new System.Drawing.Size(125, 46);
+            this.WeightLabel.Size = new System.Drawing.Size(124, 46);
             this.WeightLabel.TabIndex = 1;
             this.WeightLabel.Text = "Weight:";
             this.WeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -324,10 +324,12 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BMICalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BMI Calculator";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BMICalculatorForm_FormClosed);
             this.Load += new System.EventHandler(this.BMICalculatorForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

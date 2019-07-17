@@ -41,6 +41,7 @@ namespace BMICalculator
             // check if the radio button selected is Imperial or Metric
             if (ImperialRadioButton.Checked)
             {
+                ResultTitleLabel.Visible = true;
                 ResultLabel.Visible = true;
                 result = Math.Round((Convert.ToDouble(WeightNumericTextBox.Text) * 703) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
                 ResultLabel.Text = "" + Convert.ToInt32(result);
@@ -48,6 +49,7 @@ namespace BMICalculator
             }
             else
             {
+                ResultTitleLabel.Visible = true;
                 ResultLabel.Visible = true;
                 result = Math.Round(Convert.ToDouble(WeightNumericTextBox.Text) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
                 ResultLabel.Text = "" + Convert.ToInt32(result);
@@ -121,7 +123,6 @@ namespace BMICalculator
             ResultLabel.Text = string.Empty;
             ResultProgressBar.Visible = false;
             ResultTableLayoutPanel.Visible = false;
-            ResultProgressBar.Visible = false;
             ResultProgressBar.Value = 0;
             HeightUnitLabel.Text = "in";
             WeightUnitLabel.Text = "lb";
@@ -183,6 +184,9 @@ namespace BMICalculator
             }
         }
 
-
+        private void BMICalculatorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
