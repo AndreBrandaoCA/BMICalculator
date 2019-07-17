@@ -80,11 +80,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.WeightNumericTextBox.Location = new System.Drawing.Point(134, 52);
+            this.WeightNumericTextBox.MaxLength = 4;
             this.WeightNumericTextBox.Name = "WeightNumericTextBox";
             this.WeightNumericTextBox.Size = new System.Drawing.Size(109, 38);
             this.WeightNumericTextBox.TabIndex = 2;
             this.WeightNumericTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.WeightNumericTextBox.TextChanged += new System.EventHandler(this.WeightNumericTextBox_TextChanged);
+            this.WeightNumericTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WeightNumericTextBox_KeyPress);
             // 
             // WeightUnitLabel
             // 
@@ -131,11 +133,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.HeightNumericTextBox.Location = new System.Drawing.Point(134, 3);
+            this.HeightNumericTextBox.MaxLength = 4;
             this.HeightNumericTextBox.Name = "HeightNumericTextBox";
             this.HeightNumericTextBox.Size = new System.Drawing.Size(109, 38);
             this.HeightNumericTextBox.TabIndex = 1;
             this.HeightNumericTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.HeightNumericTextBox.TextChanged += new System.EventHandler(this.HeightNumericTextBox_TextChanged);
+            this.HeightNumericTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HeightNumericTextBox_KeyPress);
             // 
             // WeightLabel
             // 

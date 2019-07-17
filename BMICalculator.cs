@@ -16,10 +16,29 @@ namespace BMICalculator
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// This method hide result and disable Calculate BMI button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BMICalculatorForm_Load(object sender, EventArgs e)
+        {
+            CalculateBMIButton.Enabled = false;
+            ResultTitleLabel.Visible = false;
+            ResultTableLayoutPanel.Visible = false;
+            ResultProgressBar.Visible = false;
+            ResultTableLayoutPanel.Visible = false;
+            ResultProgressBar.Visible = false;
+        }
+        /// <summary>
+        /// This method will calculate BMI whenever the user presses the CalculateBMIButton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
             double result = 0;
+            // check if the radio button selected is Imperial or Metric
             if (ImperialRadioButton.Checked)
             {
                 ResultLabel.Visible = true;
@@ -34,6 +53,7 @@ namespace BMICalculator
                 ResultLabel.Text = "" + Convert.ToInt32(result);
                 ResultProgressBar.Value = Convert.ToInt32(result);
             }
+            //Make result visible and fill the progress bar
             ResultTitleLabel.Visible = true;
             ResultProgressBar.Visible = true;
             ResultTableLayoutPanel.Visible = true;
@@ -53,15 +73,46 @@ namespace BMICalculator
                 ResultProgressBar.ForeColor = Color.Pink;
             }
         }
-
+        /// <summary>
+        /// This method clear all the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            ImperialRadioButton.Checked = true;
+            HeightNumericTextBox.Text = string.Empty;
+            WeightNumericTextBox.Text = string.Empty;
+            ResultTitleLabel.Text = string.Empty;
+            ResultLabel.Text = string.Empty;
+            ResultProgressBar.Visible = false;
+            ResultTableLayoutPanel.Visible = false;
+            ResultProgressBar.Visible = false;
+            ResultProgressBar.Value = 0;
+        }
+        /// <summary>
+        /// This method clear Height and Weight input textbox and modify labels to match Metric system
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MetricRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             HeightNumericTextBox.Text = string.Empty;
+            WeightNumericTextBox.Text = string.Empty;
+            ResultTitleLabel.Text = string.Empty;
             ResultLabel.Text = string.Empty;
+            ResultProgressBar.Visible = false;
+            ResultTableLayoutPanel.Visible = false;
+            ResultProgressBar.Visible = false;
+            ResultProgressBar.Value = 0;
             HeightUnitLabel.Text = "mt";
             WeightUnitLabel.Text = "kg";
         }
-
+        /// <summary>
+        /// This method clear Height and Weight input textbox and modify labels to match Imperial system
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ImperialRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             HeightNumericTextBox.Text = string.Empty;
@@ -75,17 +126,11 @@ namespace BMICalculator
             HeightUnitLabel.Text = "in";
             WeightUnitLabel.Text = "lb";
         }
-
-        private void BMICalculatorForm_Load(object sender, EventArgs e)
-        {
-            CalculateBMIButton.Enabled = false;
-            ResultTitleLabel.Visible = false;
-            ResultTableLayoutPanel.Visible = false;
-            ResultProgressBar.Visible = false;
-            ResultTableLayoutPanel.Visible = false;
-            ResultProgressBar.Visible = false;
-        }
-
+        /// <summary>
+        /// This method checks if the field WeightNumericTextBox is filled and if true enable CalculateBMI Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void WeightNumericTextBox_TextChanged(object sender, EventArgs e)
         {
             if (HeightNumericTextBox.Text != string.Empty && WeightNumericTextBox.Text != string.Empty)
@@ -97,7 +142,23 @@ namespace BMICalculator
                 CalculateBMIButton.Enabled = false;
             }
         }
-
+        /// <summary>
+        /// This method checks HeightNumericTextBox entry for digits
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HeightNumericTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+        /// <summary>
+        /// This method checks if the field HeightNumericTextBox is filled and if true enable CalculateBMI Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HeightNumericTextBox_TextChanged(object sender, EventArgs e)
         {
             if (HeightNumericTextBox.Text != string.Empty && WeightNumericTextBox.Text != string.Empty)
@@ -109,18 +170,19 @@ namespace BMICalculator
                 CalculateBMIButton.Enabled = false;
             }
         }
-
-        private void ResetButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// This method checks WeightNumericTextBox entry for digits
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void WeightNumericTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            ImperialRadioButton.Checked = true;
-            HeightNumericTextBox.Text = string.Empty;
-            WeightNumericTextBox.Text = string.Empty;
-            ResultTitleLabel.Text = string.Empty;
-            ResultLabel.Text = string.Empty;
-            ResultProgressBar.Visible = false;
-            ResultTableLayoutPanel.Visible = false;
-            ResultProgressBar.Visible = false;
-            ResultProgressBar.Value = 0;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
+
+
     }
 }
