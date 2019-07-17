@@ -196,9 +196,14 @@
             // 
             // ResultProgressBar
             // 
+            this.ResultProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ResultProgressBar.Location = new System.Drawing.Point(1, 265);
+            this.ResultProgressBar.Maximum = 50;
             this.ResultProgressBar.Name = "ResultProgressBar";
-            this.ResultProgressBar.Size = new System.Drawing.Size(302, 23);
+            this.ResultProgressBar.Size = new System.Drawing.Size(302, 33);
+            this.ResultProgressBar.Step = 50;
             this.ResultProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.ResultProgressBar.TabIndex = 6;
             this.ResultProgressBar.Visible = false;
@@ -232,14 +237,14 @@
             this.ResultTableLayoutPanel.Controls.Add(this.NormalWeightLabel, 0, 1);
             this.ResultTableLayoutPanel.Controls.Add(this.UnderwightLabel, 0, 0);
             this.ResultTableLayoutPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResultTableLayoutPanel.Location = new System.Drawing.Point(-2, 295);
+            this.ResultTableLayoutPanel.Location = new System.Drawing.Point(-2, 307);
             this.ResultTableLayoutPanel.Name = "ResultTableLayoutPanel";
             this.ResultTableLayoutPanel.RowCount = 4;
             this.ResultTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.ResultTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.ResultTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.ResultTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.ResultTableLayoutPanel.Size = new System.Drawing.Size(305, 134);
+            this.ResultTableLayoutPanel.Size = new System.Drawing.Size(313, 134);
             this.ResultTableLayoutPanel.TabIndex = 8;
             // 
             // ObeseLabel
@@ -251,7 +256,7 @@
             this.ObeseLabel.BackColor = System.Drawing.Color.Pink;
             this.ObeseLabel.Location = new System.Drawing.Point(3, 100);
             this.ObeseLabel.Name = "ObeseLabel";
-            this.ObeseLabel.Size = new System.Drawing.Size(299, 34);
+            this.ObeseLabel.Size = new System.Drawing.Size(307, 34);
             this.ObeseLabel.TabIndex = 6;
             this.ObeseLabel.Text = "Obese               < 30";
             this.ObeseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -265,7 +270,7 @@
             this.OverweightLabel.BackColor = System.Drawing.Color.LightYellow;
             this.OverweightLabel.Location = new System.Drawing.Point(3, 68);
             this.OverweightLabel.Name = "OverweightLabel";
-            this.OverweightLabel.Size = new System.Drawing.Size(299, 32);
+            this.OverweightLabel.Size = new System.Drawing.Size(307, 32);
             this.OverweightLabel.TabIndex = 4;
             this.OverweightLabel.Text = "Overweight       <=25  > 29.9";
             this.OverweightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -279,7 +284,7 @@
             this.NormalWeightLabel.BackColor = System.Drawing.Color.LightGreen;
             this.NormalWeightLabel.Location = new System.Drawing.Point(3, 34);
             this.NormalWeightLabel.Name = "NormalWeightLabel";
-            this.NormalWeightLabel.Size = new System.Drawing.Size(299, 34);
+            this.NormalWeightLabel.Size = new System.Drawing.Size(307, 34);
             this.NormalWeightLabel.TabIndex = 2;
             this.NormalWeightLabel.Text = "Normal             <=18.5 <24.9";
             this.NormalWeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -293,7 +298,7 @@
             this.UnderwightLabel.BackColor = System.Drawing.Color.LightYellow;
             this.UnderwightLabel.Location = new System.Drawing.Point(3, 0);
             this.UnderwightLabel.Name = "UnderwightLabel";
-            this.UnderwightLabel.Size = new System.Drawing.Size(299, 34);
+            this.UnderwightLabel.Size = new System.Drawing.Size(307, 34);
             this.UnderwightLabel.TabIndex = 0;
             this.UnderwightLabel.Text = "Underweight     > 18.5";
             this.UnderwightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

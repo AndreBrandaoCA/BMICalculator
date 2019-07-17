@@ -22,14 +22,19 @@ namespace BMICalculator
             if (ImperialRadioButton.Checked)
             {
                 ResultLabel.Visible = true;
-                ResultLabel.Text = "" + Math.Round((Convert.ToDouble(WeightNumericTextBox.Text) * 703) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
+                double result = Math.Round((Convert.ToDouble(WeightNumericTextBox.Text) * 703) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
+                ResultLabel.Text = "" + Convert.ToInt32(result);
+                ResultProgressBar.Value = Convert.ToInt32(result);
             }
             else
             {
                 ResultLabel.Visible = true;
-                ResultLabel.Text = "" + Math.Round(Convert.ToDouble(WeightNumericTextBox.Text) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
+                double result = Math.Round(Convert.ToDouble(WeightNumericTextBox.Text) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
+                ResultLabel.Text = "" + Convert.ToInt32(result);
+                ResultProgressBar.Value = Convert.ToInt32(result);
             }
             ResultTitleLabel.Visible = true;
+            ResultProgressBar.Visible = true;
             ResultTableLayoutPanel.Visible = true;
         }
 
@@ -43,8 +48,14 @@ namespace BMICalculator
 
         private void ImperialRadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            HeightNumericTextBox.Text = string.Empty;
             WeightNumericTextBox.Text = string.Empty;
+            ResultTitleLabel.Text = string.Empty;
             ResultLabel.Text = string.Empty;
+            ResultProgressBar.Visible = false;
+            ResultTableLayoutPanel.Visible = false;
+            ResultProgressBar.Visible = false;
+            ResultProgressBar.Value = 0;
             HeightUnitLabel.Text = "in";
             WeightUnitLabel.Text = "lb";
         }
@@ -54,6 +65,9 @@ namespace BMICalculator
             CalculateBMIButton.Enabled = false;
             ResultTitleLabel.Visible = false;
             ResultTableLayoutPanel.Visible = false;
+            ResultProgressBar.Visible = false;
+            ResultTableLayoutPanel.Visible = false;
+            ResultProgressBar.Visible = false;
         }
 
         private void WeightNumericTextBox_TextChanged(object sender, EventArgs e)
@@ -87,7 +101,10 @@ namespace BMICalculator
             WeightNumericTextBox.Text = string.Empty;
             ResultTitleLabel.Text = string.Empty;
             ResultLabel.Text = string.Empty;
+            ResultProgressBar.Visible = false;
             ResultTableLayoutPanel.Visible = false;
+            ResultProgressBar.Visible = false;
+            ResultProgressBar.Value = 0;
         }
     }
 }
