@@ -33,14 +33,56 @@ namespace BMICalculator
 
         private void MetricRadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            HeightNumericTextBox.Text = string.Empty;
+            ResultLabel.Text = string.Empty;
             HeightUnitLabel.Text = "mt";
             WeightUnitLabel.Text = "kg";
         }
 
         private void ImperialRadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            WeightNumericTextBox.Text = string.Empty;
+            ResultLabel.Text = string.Empty;
             HeightUnitLabel.Text = "in";
             WeightUnitLabel.Text = "lb";
+        }
+
+        private void BMICalculatorForm_Load(object sender, EventArgs e)
+        {
+            CalculateBMIButton.Enabled = false;
+        }
+
+        private void WeightNumericTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (HeightNumericTextBox.Text != string.Empty && WeightNumericTextBox.Text != string.Empty)
+            {
+                CalculateBMIButton.Enabled = true;
+            }
+            else
+            {
+                CalculateBMIButton.Enabled = false;
+            }
+        }
+
+        private void HeightNumericTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (HeightNumericTextBox.Text != string.Empty && WeightNumericTextBox.Text != string.Empty)
+            {
+                CalculateBMIButton.Enabled = true;
+            }
+            else
+            {
+                CalculateBMIButton.Enabled = false;
+            }
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            ImperialRadioButton.Checked = true;
+            HeightNumericTextBox.Text = string.Empty;
+            WeightNumericTextBox.Text = string.Empty;
+            ResultLabel.Text = string.Empty;
+
         }
     }
 }
