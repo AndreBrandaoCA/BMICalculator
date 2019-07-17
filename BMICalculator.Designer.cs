@@ -42,7 +42,13 @@
             this.ResultProgressBar = new System.Windows.Forms.ProgressBar();
             this.ResultLabel = new System.Windows.Forms.Label();
             this.ResetButton = new System.Windows.Forms.Button();
+            this.ResultTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ObeseLabel = new System.Windows.Forms.Label();
+            this.OverweightLabel = new System.Windows.Forms.Label();
+            this.NormalWeightLabel = new System.Windows.Forms.Label();
+            this.UnderwightLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
+            this.ResultTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -53,7 +59,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.24074F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.75926F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.Controls.Add(this.WeightNumericTextBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.WeightUnitLabel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.HeightUnitLabel, 2, 0);
@@ -70,9 +76,12 @@
             // 
             // WeightNumericTextBox
             // 
-            this.WeightNumericTextBox.Location = new System.Drawing.Point(131, 52);
+            this.WeightNumericTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.WeightNumericTextBox.Location = new System.Drawing.Point(134, 52);
             this.WeightNumericTextBox.Name = "WeightNumericTextBox";
-            this.WeightNumericTextBox.Size = new System.Drawing.Size(97, 38);
+            this.WeightNumericTextBox.Size = new System.Drawing.Size(109, 38);
             this.WeightNumericTextBox.TabIndex = 2;
             this.WeightNumericTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.WeightNumericTextBox.TextChanged += new System.EventHandler(this.WeightNumericTextBox_TextChanged);
@@ -83,9 +92,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.WeightUnitLabel.AutoSize = true;
-            this.WeightUnitLabel.Location = new System.Drawing.Point(244, 49);
+            this.WeightUnitLabel.Location = new System.Drawing.Point(249, 49);
             this.WeightUnitLabel.Name = "WeightUnitLabel";
-            this.WeightUnitLabel.Size = new System.Drawing.Size(55, 46);
+            this.WeightUnitLabel.Size = new System.Drawing.Size(50, 46);
             this.WeightUnitLabel.TabIndex = 5;
             this.WeightUnitLabel.Text = "lb";
             this.WeightUnitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -96,9 +105,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.HeightUnitLabel.AutoSize = true;
-            this.HeightUnitLabel.Location = new System.Drawing.Point(244, 0);
+            this.HeightUnitLabel.Location = new System.Drawing.Point(249, 0);
             this.HeightUnitLabel.Name = "HeightUnitLabel";
-            this.HeightUnitLabel.Size = new System.Drawing.Size(55, 49);
+            this.HeightUnitLabel.Size = new System.Drawing.Size(50, 49);
             this.HeightUnitLabel.TabIndex = 4;
             this.HeightUnitLabel.Text = "in";
             this.HeightUnitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -111,16 +120,19 @@
             this.HeightLabel.AutoSize = true;
             this.HeightLabel.Location = new System.Drawing.Point(3, 0);
             this.HeightLabel.Name = "HeightLabel";
-            this.HeightLabel.Size = new System.Drawing.Size(122, 49);
+            this.HeightLabel.Size = new System.Drawing.Size(125, 49);
             this.HeightLabel.TabIndex = 0;
             this.HeightLabel.Text = "Height:";
             this.HeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // HeightNumericTextBox
             // 
-            this.HeightNumericTextBox.Location = new System.Drawing.Point(131, 3);
+            this.HeightNumericTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.HeightNumericTextBox.Location = new System.Drawing.Point(134, 3);
             this.HeightNumericTextBox.Name = "HeightNumericTextBox";
-            this.HeightNumericTextBox.Size = new System.Drawing.Size(97, 38);
+            this.HeightNumericTextBox.Size = new System.Drawing.Size(109, 38);
             this.HeightNumericTextBox.TabIndex = 1;
             this.HeightNumericTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.HeightNumericTextBox.TextChanged += new System.EventHandler(this.HeightNumericTextBox_TextChanged);
@@ -133,7 +145,7 @@
             this.WeightLabel.AutoSize = true;
             this.WeightLabel.Location = new System.Drawing.Point(3, 49);
             this.WeightLabel.Name = "WeightLabel";
-            this.WeightLabel.Size = new System.Drawing.Size(122, 46);
+            this.WeightLabel.Size = new System.Drawing.Size(125, 46);
             this.WeightLabel.TabIndex = 1;
             this.WeightLabel.Text = "Weight:";
             this.WeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -176,15 +188,15 @@
             // ResultTitleLabel
             // 
             this.ResultTitleLabel.AutoSize = true;
-            this.ResultTitleLabel.Location = new System.Drawing.Point(87, 186);
+            this.ResultTitleLabel.Location = new System.Drawing.Point(93, 186);
             this.ResultTitleLabel.Name = "ResultTitleLabel";
-            this.ResultTitleLabel.Size = new System.Drawing.Size(92, 31);
+            this.ResultTitleLabel.Size = new System.Drawing.Size(126, 31);
             this.ResultTitleLabel.TabIndex = 5;
-            this.ResultTitleLabel.Text = "Result";
+            this.ResultTitleLabel.Text = "Your BMI";
             // 
             // ResultProgressBar
             // 
-            this.ResultProgressBar.Location = new System.Drawing.Point(1, 363);
+            this.ResultProgressBar.Location = new System.Drawing.Point(1, 265);
             this.ResultProgressBar.Name = "ResultProgressBar";
             this.ResultProgressBar.Size = new System.Drawing.Size(302, 23);
             this.ResultProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -211,11 +223,87 @@
             this.ResetButton.UseVisualStyleBackColor = true;
             this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
             // 
+            // ResultTableLayoutPanel
+            // 
+            this.ResultTableLayoutPanel.ColumnCount = 1;
+            this.ResultTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ResultTableLayoutPanel.Controls.Add(this.ObeseLabel, 0, 3);
+            this.ResultTableLayoutPanel.Controls.Add(this.OverweightLabel, 0, 2);
+            this.ResultTableLayoutPanel.Controls.Add(this.NormalWeightLabel, 0, 1);
+            this.ResultTableLayoutPanel.Controls.Add(this.UnderwightLabel, 0, 0);
+            this.ResultTableLayoutPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResultTableLayoutPanel.Location = new System.Drawing.Point(-2, 295);
+            this.ResultTableLayoutPanel.Name = "ResultTableLayoutPanel";
+            this.ResultTableLayoutPanel.RowCount = 4;
+            this.ResultTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ResultTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ResultTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.ResultTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.ResultTableLayoutPanel.Size = new System.Drawing.Size(305, 134);
+            this.ResultTableLayoutPanel.TabIndex = 8;
+            // 
+            // ObeseLabel
+            // 
+            this.ObeseLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ObeseLabel.AutoSize = true;
+            this.ObeseLabel.BackColor = System.Drawing.Color.Pink;
+            this.ObeseLabel.Location = new System.Drawing.Point(3, 100);
+            this.ObeseLabel.Name = "ObeseLabel";
+            this.ObeseLabel.Size = new System.Drawing.Size(299, 34);
+            this.ObeseLabel.TabIndex = 6;
+            this.ObeseLabel.Text = "Obese               < 30";
+            this.ObeseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // OverweightLabel
+            // 
+            this.OverweightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.OverweightLabel.AutoSize = true;
+            this.OverweightLabel.BackColor = System.Drawing.Color.LightYellow;
+            this.OverweightLabel.Location = new System.Drawing.Point(3, 68);
+            this.OverweightLabel.Name = "OverweightLabel";
+            this.OverweightLabel.Size = new System.Drawing.Size(299, 32);
+            this.OverweightLabel.TabIndex = 4;
+            this.OverweightLabel.Text = "Overweight       <=25  > 29.9";
+            this.OverweightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NormalWeightLabel
+            // 
+            this.NormalWeightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NormalWeightLabel.AutoSize = true;
+            this.NormalWeightLabel.BackColor = System.Drawing.Color.LightGreen;
+            this.NormalWeightLabel.Location = new System.Drawing.Point(3, 34);
+            this.NormalWeightLabel.Name = "NormalWeightLabel";
+            this.NormalWeightLabel.Size = new System.Drawing.Size(299, 34);
+            this.NormalWeightLabel.TabIndex = 2;
+            this.NormalWeightLabel.Text = "Normal             <=18.5 <24.9";
+            this.NormalWeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // UnderwightLabel
+            // 
+            this.UnderwightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UnderwightLabel.AutoSize = true;
+            this.UnderwightLabel.BackColor = System.Drawing.Color.LightYellow;
+            this.UnderwightLabel.Location = new System.Drawing.Point(3, 0);
+            this.UnderwightLabel.Name = "UnderwightLabel";
+            this.UnderwightLabel.Size = new System.Drawing.Size(299, 34);
+            this.UnderwightLabel.TabIndex = 0;
+            this.UnderwightLabel.Text = "Underweight     > 18.5";
+            this.UnderwightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // BMICalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.ResultTableLayoutPanel);
             this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.ResultLabel);
             this.Controls.Add(this.ResultProgressBar);
@@ -234,6 +322,8 @@
             this.Load += new System.EventHandler(this.BMICalculatorForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.ResultTableLayoutPanel.ResumeLayout(false);
+            this.ResultTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,6 +345,11 @@
         private System.Windows.Forms.TextBox HeightNumericTextBox;
         private System.Windows.Forms.TextBox WeightNumericTextBox;
         private System.Windows.Forms.Button ResetButton;
+        private System.Windows.Forms.TableLayoutPanel ResultTableLayoutPanel;
+        private System.Windows.Forms.Label ObeseLabel;
+        private System.Windows.Forms.Label OverweightLabel;
+        private System.Windows.Forms.Label NormalWeightLabel;
+        private System.Windows.Forms.Label UnderwightLabel;
     }
 }
 

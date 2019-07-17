@@ -29,6 +29,8 @@ namespace BMICalculator
                 ResultLabel.Visible = true;
                 ResultLabel.Text = "" + Math.Round(Convert.ToDouble(WeightNumericTextBox.Text) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
             }
+            ResultTitleLabel.Visible = true;
+            ResultTableLayoutPanel.Visible = true;
         }
 
         private void MetricRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -50,6 +52,8 @@ namespace BMICalculator
         private void BMICalculatorForm_Load(object sender, EventArgs e)
         {
             CalculateBMIButton.Enabled = false;
+            ResultTitleLabel.Visible = false;
+            ResultTableLayoutPanel.Visible = false;
         }
 
         private void WeightNumericTextBox_TextChanged(object sender, EventArgs e)
@@ -81,8 +85,9 @@ namespace BMICalculator
             ImperialRadioButton.Checked = true;
             HeightNumericTextBox.Text = string.Empty;
             WeightNumericTextBox.Text = string.Empty;
+            ResultTitleLabel.Text = string.Empty;
             ResultLabel.Text = string.Empty;
-
+            ResultTableLayoutPanel.Visible = false;
         }
     }
 }
