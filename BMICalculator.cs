@@ -19,23 +19,39 @@ namespace BMICalculator
 
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
+            double result = 0;
             if (ImperialRadioButton.Checked)
             {
                 ResultLabel.Visible = true;
-                double result = Math.Round((Convert.ToDouble(WeightNumericTextBox.Text) * 703) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
+                result = Math.Round((Convert.ToDouble(WeightNumericTextBox.Text) * 703) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
                 ResultLabel.Text = "" + Convert.ToInt32(result);
                 ResultProgressBar.Value = Convert.ToInt32(result);
             }
             else
             {
                 ResultLabel.Visible = true;
-                double result = Math.Round(Convert.ToDouble(WeightNumericTextBox.Text) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
+                result = Math.Round(Convert.ToDouble(WeightNumericTextBox.Text) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
                 ResultLabel.Text = "" + Convert.ToInt32(result);
                 ResultProgressBar.Value = Convert.ToInt32(result);
             }
             ResultTitleLabel.Visible = true;
             ResultProgressBar.Visible = true;
             ResultTableLayoutPanel.Visible = true;
+            if (result < 18.5){
+                ResultProgressBar.ForeColor = Color.LightYellow;
+            }
+            else if (result >= 18.5 && result< 24.9)
+            {
+                ResultProgressBar.ForeColor = Color.LightGreen;
+            }
+            else if (result >= 25  && result < 30)
+            {
+                ResultProgressBar.ForeColor = Color.Wheat;
+            }
+            else
+            {
+                ResultProgressBar.ForeColor = Color.Pink;
+            }
         }
 
         private void MetricRadioButton_CheckedChanged(object sender, EventArgs e)

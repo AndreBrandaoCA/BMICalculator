@@ -203,7 +203,7 @@
             this.ResultProgressBar.Maximum = 50;
             this.ResultProgressBar.Name = "ResultProgressBar";
             this.ResultProgressBar.Size = new System.Drawing.Size(302, 33);
-            this.ResultProgressBar.Step = 50;
+            this.ResultProgressBar.Step = 40;
             this.ResultProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.ResultProgressBar.TabIndex = 6;
             this.ResultProgressBar.Visible = false;
@@ -267,7 +267,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.OverweightLabel.AutoSize = true;
-            this.OverweightLabel.BackColor = System.Drawing.Color.LightYellow;
+            this.OverweightLabel.BackColor = System.Drawing.Color.Wheat;
             this.OverweightLabel.Location = new System.Drawing.Point(3, 68);
             this.OverweightLabel.Name = "OverweightLabel";
             this.OverweightLabel.Size = new System.Drawing.Size(307, 32);
