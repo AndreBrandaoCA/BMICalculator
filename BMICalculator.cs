@@ -17,6 +17,9 @@ namespace BMICalculator
             InitializeComponent();
         }
         #region Show results method
+        /// <summary>
+        /// Show result controls
+        /// </summary>
         private void ShowResults()
         {
             ResultTitleLabel.Visible = true;
@@ -26,6 +29,9 @@ namespace BMICalculator
         }
         #endregion
         #region Hide results method
+        /// <summary>
+        /// Hide result controls
+        /// </summary>
         private void HideResults()
         {
             ResultTextBox.Visible = false;
@@ -35,6 +41,9 @@ namespace BMICalculator
         }
         #endregion
         #region Reset results method
+        /// <summary>
+        /// Reset result controls
+        /// </summary>
         private void ResetResults()
         {
             HeightNumericTextBox.Text = string.Empty;
@@ -108,7 +117,6 @@ namespace BMICalculator
             {
                 ResultProgressBar.ForeColor = Color.Pink;
             }
-            
         }
         #endregion
         #region Reset Button
