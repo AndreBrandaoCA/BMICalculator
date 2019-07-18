@@ -7,7 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// Author: Andre Brandao Teodor
+/// ID: 300944427
+/// Last Modified: 2019-07-17
+/// Description:
+///         Program calculates user's BMI acording to the inputs given
+/// History:
+///     2019-07-14
+///         Interface design and BMI calculations created
+///         Form rename
+///     2019-07-17
+///         Height and Weight textbox included, Label change when different unit selected
+///         Reset Button created
+///         Progress Bar created and colors ajusted
+///         Refactoring and documentation
+///         SplashScreen added
+/// </summary>
 namespace BMICalculator
 {
     public partial class BMICalculatorForm : Form
@@ -20,7 +36,7 @@ namespace BMICalculator
         /// <summary>
         /// Show result controls
         /// </summary>
-        private void ShowResults()
+        private void _ShowResults()
         {
             ResultTitleLabel.Visible = true;
             ResultTextBox.Visible = true;
@@ -32,7 +48,7 @@ namespace BMICalculator
         /// <summary>
         /// Hide result controls
         /// </summary>
-        private void HideResults()
+        private void _HideResults()
         {
             ResultTextBox.Visible = false;
             ResultTitleLabel.Visible = false;
@@ -44,7 +60,7 @@ namespace BMICalculator
         /// <summary>
         /// Reset result controls
         /// </summary>
-        private void ResetResults()
+        private void _ResetResults()
         {
             HeightNumericTextBox.Text = string.Empty;
             WeightNumericTextBox.Text = string.Empty;
@@ -61,7 +77,7 @@ namespace BMICalculator
         private void BMICalculatorForm_Load(object sender, EventArgs e)
         {
             CalculateBMIButton.Enabled = false;
-            HideResults();
+            _HideResults();
         }
         #endregion
         #region Calculate BMI Button
@@ -96,7 +112,7 @@ namespace BMICalculator
                     else { ResultProgressBar.Value = 50; }
 
                 }
-                ShowResults();
+                _ShowResults();
             }
             else
             {
@@ -128,8 +144,8 @@ namespace BMICalculator
         private void ResetButton_Click(object sender, EventArgs e)
         {
             ImperialRadioButton.Checked = true;
-            ResetResults();
-            HideResults();
+            _ResetResults();
+            _HideResults();
         }
         #endregion
         #region Change units to Metric
@@ -140,8 +156,8 @@ namespace BMICalculator
         /// <param name="e"></param>
         private void MetricRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            ResetResults();
-            HideResults();
+            _ResetResults();
+            _HideResults();
             HeightUnitLabel.Text = "mt";
             WeightUnitLabel.Text = "kg";
         }
@@ -154,8 +170,8 @@ namespace BMICalculator
         /// <param name="e"></param>
         private void ImperialRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            ResetResults();
-            HideResults();
+            _ResetResults();
+            _HideResults();
             HeightUnitLabel.Text = "in";
             WeightUnitLabel.Text = "lb";
         }
