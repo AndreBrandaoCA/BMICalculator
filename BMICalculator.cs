@@ -16,6 +16,34 @@ namespace BMICalculator
         {
             InitializeComponent();
         }
+        #region Show results method
+        private void ShowResults()
+        {
+            ResultTitleLabel.Visible = true;
+            ResultTextBox.Visible = true;
+            ResultProgressBar.Visible = true;
+            ResultTableLayoutPanel.Visible = true;
+        }
+        #endregion
+        #region Hide results method
+        private void HideResults()
+        {
+            ResultTextBox.Visible = false;
+            ResultTitleLabel.Visible = false;
+            ResultTableLayoutPanel.Visible = false;
+            ResultProgressBar.Visible = false;
+        }
+        #endregion
+        #region Reset results method
+        private void ResetResults()
+        {
+            HeightNumericTextBox.Text = string.Empty;
+            WeightNumericTextBox.Text = string.Empty;
+            ResultTextBox.Text = string.Empty;
+            ResultProgressBar.Value = 0;
+        }
+        #endregion
+        #region Form Load
         /// <summary>
         /// This method hide result and disable Calculate BMI button
         /// </summary>
@@ -24,12 +52,10 @@ namespace BMICalculator
         private void BMICalculatorForm_Load(object sender, EventArgs e)
         {
             CalculateBMIButton.Enabled = false;
-            ResultTitleLabel.Visible = false;
-            ResultTableLayoutPanel.Visible = false;
-            ResultProgressBar.Visible = false;
-            ResultTableLayoutPanel.Visible = false;
-            ResultProgressBar.Visible = false;
+            HideResults();
         }
+        #endregion
+        #region Calculate BMI Button
         /// <summary>
         /// This method will calculate BMI whenever the user presses the CalculateBMIButton
         /// </summary>
@@ -38,27 +64,35 @@ namespace BMICalculator
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
             double result = 0;
-            // check if the radio button selected is Imperial or Metric
-            if (ImperialRadioButton.Checked)
+            if (WeightNumericTextBox.Text != "0" && HeightNumericTextBox.Text != "0")
             {
-                ResultTitleLabel.Visible = true;
-                ResultLabel.Visible = true;
-                result = Math.Round((Convert.ToDouble(WeightNumericTextBox.Text) * 703) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
-                ResultLabel.Text = "" + Convert.ToInt32(result);
-                ResultProgressBar.Value = Convert.ToInt32(result);
+                // check if the radio button selected is Imperial or Metric and calculate BMI acordingly
+                if (ImperialRadioButton.Checked)
+                {
+                    result = Math.Round((Convert.ToDouble(WeightNumericTextBox.Text) * 703) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
+                    ResultTextBox.Text = "" + Convert.ToInt32(result);
+                    if (result < 50)
+                    {
+                        ResultProgressBar.Value = Convert.ToInt32(result);
+                    } else { ResultProgressBar.Value = 50; }
+                }
+                else
+                {
+                    result = Math.Round(Convert.ToDouble(WeightNumericTextBox.Text) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
+                    ResultTextBox.Text = "" + Convert.ToInt32(result);
+                    if (result < 50)
+                    {
+                        ResultProgressBar.Value = Convert.ToInt32(result);
+                    }
+                    else { ResultProgressBar.Value = 50; }
+
+                }
+                ShowResults();
             }
             else
             {
-                ResultTitleLabel.Visible = true;
-                ResultLabel.Visible = true;
-                result = Math.Round(Convert.ToDouble(WeightNumericTextBox.Text) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
-                ResultLabel.Text = "" + Convert.ToInt32(result);
-                ResultProgressBar.Value = Convert.ToInt32(result);
+                ResultTextBox.Text = "Invalid entry";
             }
-            //Make result visible and fill the progress bar
-            ResultTitleLabel.Visible = true;
-            ResultProgressBar.Visible = true;
-            ResultTableLayoutPanel.Visible = true;
             if (result < 18.5){
                 ResultProgressBar.ForeColor = Color.LightYellow;
             }
@@ -74,7 +108,10 @@ namespace BMICalculator
             {
                 ResultProgressBar.ForeColor = Color.Pink;
             }
+            
         }
+        #endregion
+        #region Reset Button
         /// <summary>
         /// This method clear all the form
         /// </summary>
@@ -83,15 +120,11 @@ namespace BMICalculator
         private void ResetButton_Click(object sender, EventArgs e)
         {
             ImperialRadioButton.Checked = true;
-            HeightNumericTextBox.Text = string.Empty;
-            WeightNumericTextBox.Text = string.Empty;
-            ResultTitleLabel.Text = string.Empty;
-            ResultLabel.Text = string.Empty;
-            ResultProgressBar.Visible = false;
-            ResultTableLayoutPanel.Visible = false;
-            ResultProgressBar.Visible = false;
-            ResultProgressBar.Value = 0;
+            ResetResults();
+            HideResults();
         }
+        #endregion
+        #region Change units to Metric
         /// <summary>
         /// This method clear Height and Weight input textbox and modify labels to match Metric system
         /// </summary>
@@ -99,17 +132,13 @@ namespace BMICalculator
         /// <param name="e"></param>
         private void MetricRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            HeightNumericTextBox.Text = string.Empty;
-            WeightNumericTextBox.Text = string.Empty;
-            ResultTitleLabel.Text = string.Empty;
-            ResultLabel.Text = string.Empty;
-            ResultProgressBar.Visible = false;
-            ResultTableLayoutPanel.Visible = false;
-            ResultProgressBar.Visible = false;
-            ResultProgressBar.Value = 0;
+            ResetResults();
+            HideResults();
             HeightUnitLabel.Text = "mt";
             WeightUnitLabel.Text = "kg";
         }
+        #endregion
+        #region Change units to Imperial
         /// <summary>
         /// This method clear Height and Weight input textbox and modify labels to match Imperial system
         /// </summary>
@@ -117,16 +146,13 @@ namespace BMICalculator
         /// <param name="e"></param>
         private void ImperialRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            HeightNumericTextBox.Text = string.Empty;
-            WeightNumericTextBox.Text = string.Empty;
-            ResultTitleLabel.Text = string.Empty;
-            ResultLabel.Text = string.Empty;
-            ResultProgressBar.Visible = false;
-            ResultTableLayoutPanel.Visible = false;
-            ResultProgressBar.Value = 0;
+            ResetResults();
+            HideResults();
             HeightUnitLabel.Text = "in";
             WeightUnitLabel.Text = "lb";
         }
+        #endregion
+        #region Enable Calculate BMI Button if both fields are filled
         /// <summary>
         /// This method checks if the field WeightNumericTextBox is filled and if true enable CalculateBMI Button
         /// </summary>
@@ -143,6 +169,8 @@ namespace BMICalculator
                 CalculateBMIButton.Enabled = false;
             }
         }
+        #endregion
+        #region Check for numbers in Height field
         /// <summary>
         /// This method checks HeightNumericTextBox entry for digits
         /// </summary>
@@ -155,6 +183,8 @@ namespace BMICalculator
                 e.Handled = true;
             }
         }
+        #endregion
+        #region Enable Calculate BMI Button
         /// <summary>
         /// This method checks if the field HeightNumericTextBox is filled and if true enable CalculateBMI Button
         /// </summary>
@@ -171,6 +201,8 @@ namespace BMICalculator
                 CalculateBMIButton.Enabled = false;
             }
         }
+        #endregion
+        #region Check for numbers in Weight field
         /// <summary>
         /// This method checks WeightNumericTextBox entry for digits
         /// </summary>
@@ -183,10 +215,12 @@ namespace BMICalculator
                 e.Handled = true;
             }
         }
-
+        #endregion
+        #region Exit
         private void BMICalculatorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
+        #endregion
     }
 }
