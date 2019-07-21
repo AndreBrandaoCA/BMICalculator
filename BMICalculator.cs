@@ -23,6 +23,8 @@ using System.Windows.Forms;
 ///         Progress Bar created and colors ajusted
 ///         Refactoring and documentation
 ///         SplashScreen added
+///      2019-07-21
+///         Result Text Box color ajustment
 /// </summary>
 namespace BMICalculator
 {
@@ -96,6 +98,7 @@ namespace BMICalculator
                 {
                     result = Math.Round((Convert.ToDouble(WeightNumericTextBox.Text) * 703) / (Convert.ToDouble(HeightNumericTextBox.Text) * Convert.ToDouble(HeightNumericTextBox.Text)));
                     ResultTextBox.Text = "" + Convert.ToInt32(result);
+                    ResultTextBox.ForeColor = Color.Black;
                     if (result < 50)
                     {
                         ResultProgressBar.Value = Convert.ToInt32(result);
